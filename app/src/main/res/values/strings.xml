@@ -84,6 +84,8 @@
     <string name="add_friend_title">친구 추가</string>
     <string name="add_friend_search">친구의 고유코드를 검색해보세요.</string>
     <string name="add_friend_add">추가</string>
+    <string name="add_friend_null">검색 결과가 없습니다.</string>
+
 
     <!-- Settings -->
     <string name="settings_title">설정</string>
