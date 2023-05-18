@@ -32,26 +32,13 @@ class SignFragment : Fragment() {
 
             try {
                 val account = task.getResult(ApiException::class.java)
-                val userName = account.givenName
-                val serverAuth = account.serverAuthCode
+                val name = account.givenName
                 val email = account.email
-                viewModel.saveUserName(userName)
-
-                if (serverAuth != null) {
-                    Log.d("*************serverAuth", serverAuth)
-                } else Log.d("*************serverAuth", "null")
-
-                if (email != null) {
-                    Log.d("*************email", email)
-                } else Log.d("*************email", "null")
+                viewModel.saveUserName(name)
+                viewModel.saveUserEmail(email)
 
                 moveSignUpActivity()
-                /* api 연동 시 viewModel 수정 (role 포함해야 함)
-                viewModel.loginUser(
-                    idToken,
-                    //pushToken = pushToken
-                )
-                */
+
             } catch (e: ApiException) {
                 Log.e(SignFragment::class.java.simpleName, e.stackTraceToString())
             }
