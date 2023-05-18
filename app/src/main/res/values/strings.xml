@@ -37,7 +37,8 @@
     <string name="main_hello">안녕하세요,&#160;&#160;</string>
     <string name="main_bang">님!</string>
     <string name="main_sex">성별</string>
-    <string name="main_birth">생년월일</string>
+    <string name="main_age">나이</string>
+    <string name="main_age_2">세</string>
     <string name="main_height">키</string>
     <string name="main_weight">체중</string>
     <string name="main_height2">cm</string>
