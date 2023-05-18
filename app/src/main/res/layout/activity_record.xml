@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.joyroom.carespoon.ui.RecordActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/anekbanglasemibold"
+        android:text="@string/record_title"
+        android:textColor="@color/green02"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/anekbanglamedium"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="5월 9일 화요일"/>
+
+    <ImageView
+        android:id="@+id/iv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_date"
+        app:srcCompat="@drawable/ic_arrow_left" />
+
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_date"
+        app:srcCompat="@drawable/ic_arrow_right" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/sv_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_date"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_breakfast"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_round"
+                android:elevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_breakfast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/anekbanglasemibold"
+                    android:text="@string/record_breakfast"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_breakfast_time"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_breakfast_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbanglamedium"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_breakfast"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_breakfast"
+                    app:layout_constraintTop_toTopOf="@+id/tv_breakfast"
+                    tools:text="08:00"/>
+
+                <ImageView
+                    android:id="@+id/iv_breakfast"
+                    android:layout_width="165dp"
+                    android:layout_height="165dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_gray_round_line"
+                    android:clipToOutline="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_breakfast"
+                    tools:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tv_bf_carbohydrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="@string/record_carbohydrate"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/anekbangla"
+                    app:layout_constraintStart_toEndOf="@+id/iv_breakfast"
+                    app:layout_constraintTop_toTopOf="@+id/iv_breakfast" />
+
+                <TextView
+                    android:id="@+id/tv_bf_carbohydrate_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/anekbangla"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_bf_carbohydrate"
+                    app:layout_constraintStart_toEndOf="@+id/tv_bf_carbohydrate"
+                    app:layout_constraintTop_toTopOf="@+id/tv_bf_carbohydrate"
+                    tools:text="38.29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_gram"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_bf_carbohydrate_value"
+                    app:layout_constraintStart_toEndOf="@+id/tv_bf_carbohydrate_value"
+                    app:layout_constraintTop_toTopOf="@+id/tv_bf_carbohydrate_value" />
+
+                <TextView
+                    android:id="@+id/tv_bf_protein"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_protein"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_bf_carbohydrate"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_bf_carbohydrate" />
+
+                <TextView
+                    android:id="@+id/tv_bf_protein_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/anekbangla"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_bf_protein"
+                    app:layout_constraintStart_toEndOf="@+id/tv_bf_protein"
+                    app:layout_constraintTop_toTopOf="@+id/tv_bf_protein"
+                    tools:text="38.29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_gram"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_bf_protein_value"
+                    app:layout_constraintStart_toEndOf="@+id/tv_bf_protein_value"
+                    app:layout_constraintTop_toTopOf="@+id/tv_bf_protein_value" />
+
+                <TextView
+                    android:id="@+id/tv_bf_fat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_fat"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_bf_carbohydrate"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_bf_protein" />
+
+                <TextView
+                    android:id="@+id/tv_bf_fat_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/anekbangla"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_bf_fat"
+                    app:layout_constraintStart_toEndOf="@+id/tv_bf_fat"
+                    app:layout_constraintTop_toTopOf="@+id/tv_bf_fat"
+                    tools:text="38.29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_gram"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_bf_fat_value"
+                    app:layout_constraintStart_toEndOf="@+id/tv_bf_fat_value"
+                    app:layout_constraintTop_toTopOf="@+id/tv_bf_fat_value" />
+
+                <TextView
+                    android:id="@+id/tv_breakfast_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbanglasemibold"
+                    android:textColor="@color/gray05"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_bf_carbohydrate"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_bf_fat"
+                    tools:text="144"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbanglasemibold"
+                    android:text="@string/record_kcal"
+                    android:textColor="@color/gray05"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_breakfast_total"
+                    app:layout_constraintStart_toEndOf="@+id/tv_breakfast_total"
+                    app:layout_constraintTop_toTopOf="@+id/tv_breakfast_total" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_breakfast_null"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_gray_round"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_add" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_lunch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_white_round"
+                android:elevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_breakfast">
+
+                <TextView
+                    android:id="@+id/tv_lunch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/anekbanglasemibold"
+                    android:text="@string/record_lunch"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_lunch_time"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_lunch_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbanglamedium"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_lunch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_lunch"
+                    app:layout_constraintTop_toTopOf="@+id/tv_lunch"
+                    tools:text="08:00"/>
+
+                <ImageView
+                    android:id="@+id/iv_lunch"
+                    android:layout_width="165dp"
+                    android:layout_height="165dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_gray_round_line"
+                    android:clipToOutline="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_lunch"
+                    tools:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tv_lc_carbohydrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="@string/record_carbohydrate"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/anekbangla"
+                    app:layout_constraintStart_toEndOf="@+id/iv_lunch"
+                    app:layout_constraintTop_toTopOf="@+id/iv_lunch" />
+
+                <TextView
+                    android:id="@+id/tv_lc_carbohydrate_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/anekbangla"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_lc_carbohydrate"
+                    app:layout_constraintStart_toEndOf="@+id/tv_lc_carbohydrate"
+                    app:layout_constraintTop_toTopOf="@+id/tv_lc_carbohydrate"
+                    tools:text="38.29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_gram"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_lc_carbohydrate_value"
+                    app:layout_constraintStart_toEndOf="@+id/tv_lc_carbohydrate_value"
+                    app:layout_constraintTop_toTopOf="@+id/tv_lc_carbohydrate_value" />
+
+                <TextView
+                    android:id="@+id/tv_lc_protein"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_protein"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_lc_carbohydrate"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_lc_carbohydrate" />
+
+                <TextView
+                    android:id="@+id/tv_lc_protein_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/anekbangla"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_lc_protein"
+                    app:layout_constraintStart_toEndOf="@+id/tv_lc_protein"
+                    app:layout_constraintTop_toTopOf="@+id/tv_lc_protein"
+                    tools:text="38.29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_gram"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_lc_protein_value"
+                    app:layout_constraintStart_toEndOf="@+id/tv_lc_protein_value"
+                    app:layout_constraintTop_toTopOf="@+id/tv_lc_protein_value" />
+
+                <TextView
+                    android:id="@+id/tv_lc_fat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_fat"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_lc_carbohydrate"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_lc_protein" />
+
+                <TextView
+                    android:id="@+id/tv_lc_fat_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/anekbangla"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_lc_fat"
+                    app:layout_constraintStart_toEndOf="@+id/tv_lc_fat"
+                    app:layout_constraintTop_toTopOf="@+id/tv_lc_fat"
+                    tools:text="38.29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_gram"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_lc_fat_value"
+                    app:layout_constraintStart_toEndOf="@+id/tv_lc_fat_value"
+                    app:layout_constraintTop_toTopOf="@+id/tv_lc_fat_value" />
+
+                <TextView
+                    android:id="@+id/tv_lunch_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbanglasemibold"
+                    android:textColor="@color/gray05"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_lc_carbohydrate"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_lc_fat"
+                    tools:text="144"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbanglasemibold"
+                    android:text="@string/record_kcal"
+                    android:textColor="@color/gray05"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_lunch_total"
+                    app:layout_constraintStart_toEndOf="@+id/tv_lunch_total"
+                    app:layout_constraintTop_toTopOf="@+id/tv_lunch_total" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_lunch_null"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_gray_round"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_add" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_dinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_white_round"
+                android:elevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_lunch">
+
+                <TextView
+                    android:id="@+id/tv_dinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/anekbanglasemibold"
+                    android:text="@string/record_dinner"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_dinner_time"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_dinner_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbanglamedium"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_dinner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_dinner"
+                    app:layout_constraintTop_toTopOf="@+id/tv_dinner"
+                    tools:text="08:00"/>
+
+                <ImageView
+                    android:id="@+id/iv_dinner"
+                    android:layout_width="165dp"
+                    android:layout_height="165dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_gray_round_line"
+                    android:clipToOutline="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_dinner"
+                    tools:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tv_dn_carbohydrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="@string/record_carbohydrate"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/anekbangla"
+                    app:layout_constraintStart_toEndOf="@+id/iv_dinner"
+                    app:layout_constraintTop_toTopOf="@+id/iv_dinner" />
+
+                <TextView
+                    android:id="@+id/tv_dn_carbohydrate_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/anekbangla"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_dn_carbohydrate"
+                    app:layout_constraintStart_toEndOf="@+id/tv_dn_carbohydrate"
+                    app:layout_constraintTop_toTopOf="@+id/tv_dn_carbohydrate"
+                    tools:text="38.29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_gram"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_dn_carbohydrate_value"
+                    app:layout_constraintStart_toEndOf="@+id/tv_dn_carbohydrate_value"
+                    app:layout_constraintTop_toTopOf="@+id/tv_dn_carbohydrate_value" />
+
+                <TextView
+                    android:id="@+id/tv_dn_protein"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_protein"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_dn_carbohydrate"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_dn_carbohydrate" />
+
+                <TextView
+                    android:id="@+id/tv_dn_protein_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/anekbangla"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_dn_protein"
+                    app:layout_constraintStart_toEndOf="@+id/tv_dn_protein"
+                    app:layout_constraintTop_toTopOf="@+id/tv_dn_protein"
+                    tools:text="38.29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_gram"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_dn_protein_value"
+                    app:layout_constraintStart_toEndOf="@+id/tv_dn_protein_value"
+                    app:layout_constraintTop_toTopOf="@+id/tv_dn_protein_value" />
+
+                <TextView
+                    android:id="@+id/tv_dn_fat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_fat"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_dn_carbohydrate"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_dn_protein" />
+
+                <TextView
+                    android:id="@+id/tv_dn_fat_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/anekbangla"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_dn_fat"
+                    app:layout_constraintStart_toEndOf="@+id/tv_dn_fat"
+                    app:layout_constraintTop_toTopOf="@+id/tv_dn_fat"
+                    tools:text="38.29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/record_gram"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_dn_fat_value"
+                    app:layout_constraintStart_toEndOf="@+id/tv_dn_fat_value"
+                    app:layout_constraintTop_toTopOf="@+id/tv_dn_fat_value" />
+
+                <TextView
+                    android:id="@+id/tv_dinner_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbanglasemibold"
+                    android:textColor="@color/gray05"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_dn_carbohydrate"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_dn_fat"
+                    tools:text="144"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbanglasemibold"
+                    android:text="@string/record_kcal"
+                    android:textColor="@color/gray05"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_dinner_total"
+                    app:layout_constraintStart_toEndOf="@+id/tv_dinner_total"
+                    app:layout_constraintTop_toTopOf="@+id/tv_dinner_total" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_dinner_null"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_gray_round"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_add" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

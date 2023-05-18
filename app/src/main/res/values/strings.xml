@@ -1,3 +1,108 @@
 <resources>
     <string name="app_name">CareSpoon</string>
+    <string name="hello_blank_fragment">CareSpoon</string>
+    <string name="google_login_client_id">591438814977-crtcc1r9096f191u08nq75dnkmo45gtg.apps.googleusercontent.com</string>
+    <string name="default_notification_channel_id">care_spoon_channel</string>
+
+    <string name="preparing">준비 중인 기능입니다.</string>
+
+    <!-- splash -->
+    <string name="splash_description">Personal Health Care Service</string>
+
+    <!-- sign -->
+    <string name="sign_google">Sign in with Google</string>
+    <string name="sign_basic">로그인</string>
+    <string name="sign_NoAccount">계정이 없으신가요?</string>
+    <string name="sign_signUp">회원가입</string>
+
+    <!-- sign up -->
+    <string name="signUp_user_type">어떤 유형의 사용자이신가요?</string>
+    <string name="signUp_general">일반 사용자</string>
+    <string name="signUp_viewer">보호자</string>
+    <string name="signUp_next">다음</string>
+
+    <!-- sign up done -->
+    <string name="signUpDone_done">시작하기</string>
+    <string name="signUpDone_birth">생년월일</string>
+    <string name="signUpDone_birth_ex">8자리 숫자</string>
+    <string name="signUpDone_sex">성별</string>
+    <string name="signUpDone_female">여</string>
+    <string name="signUpDone_male">남</string>
+    <string name="signUpDone_height">키</string>
+    <string name="signUpDone_height_ex">단위: cm</string>
+    <string name="signUpDone_weight">체중</string>
+    <string name="signUpDone_weight_ex">단위: kg</string>
+
+    <!-- main -->
+    <string name="main_hello">안녕하세요,&#160;&#160;</string>
+    <string name="main_bang">님!</string>
+    <string name="main_sex">성별</string>
+    <string name="main_birth">생년월일</string>
+    <string name="main_height">키</string>
+    <string name="main_weight">체중</string>
+    <string name="main_height2">cm</string>
+    <string name="main_weight2">kg</string>
+    <string name="main_greeting">무엇을 도와드릴까요?</string>
+    <string name="main_statistics">영양 통계</string>
+    <string name="main_record">식단 기록</string>
+    <string name="main_share">친구와 공유하기</string>
+
+
+    <!-- camera -->
+    <string name="camera_title">카메라</string>
+
+    <!-- statistics -->
+    <string name="statistics_title">영양 통계</string>
+    <string name="statistics_daily">일별</string>
+    <string name="statistics_monthly">월별</string>
+    <string name="statistics_kcal">kcal</string>
+    <string name="statistics_recommend">하루 권장 섭취량 : </string>
+    <string name="statistics_recommend_m">한 달 권장 섭취량 : </string>
+    <string name="statistics_carbohydrate">탄수화물</string>
+    <string name="statistics_protein">단백질</string>
+    <string name="statistics_fat">지방</string>
+
+    <!-- record -->
+    <string name="record_title">식단 기록</string>
+    <string name="record_breakfast">아침</string>
+    <string name="record_lunch">점심</string>
+    <string name="record_dinner">저녁</string>
+    <string name="record_carbohydrate">탄 :</string>
+    <string name="record_protein">단 :</string>
+    <string name="record_fat">지 :</string>
+    <string name="record_gram">g</string>
+    <string name="record_kcal">kcal</string>
+
+    <!-- friends -->
+    <string name="friends_title">공유하기</string>
+    <string name="friends_unique_code">나의 고유 코드</string>
+    <string name="friends_search">친구의 이름을 검색해보세요.</string>
+    <string name="friends_delete">삭제</string>
+
+    <!-- Add friends -->
+    <string name="add_friend_title">친구 추가</string>
+    <string name="add_friend_search">친구의 고유코드를 검색해보세요.</string>
+    <string name="add_friend_add">추가</string>
+
+    <!-- Settings -->
+    <string name="settings_title">설정</string>
+    <string name="settings_notification">알림 받기</string>
+    <string name="settings_account">계정</string>
+    <string name="settings_info">정보 변경</string>
+    <string name="settings_delete">회원 탈퇴</string>
+    <string name="settings_about">서비스 정보</string>
+    <string name="settings_opensource">오픈 소스</string>
+    <string name="settings_policy">개인 정보 정책</string>
+    <string name="settings_developers">개발자 정보</string>
+
+    <!-- ChangeInfo -->
+    <string name="changeInfo_title">정보 변경</string>
+    <string name="changeInfo_name">이름</string>
+    <string name="changeInfo_enter_name">이름을 입력하세요</string>
+    <string name="changeInfo_change">변경하기</string>
+
+    <!-- DeleteAccount -->
+    <string name="delete_title">계정 삭제</string>
+    <string name="delete_done">삭제하기</string>
+
 </resources>
