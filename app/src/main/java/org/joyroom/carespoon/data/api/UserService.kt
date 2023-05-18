@@ -11,6 +11,6 @@ import retrofit2.http.Part
 interface UserService {
     @POST("user")
     suspend fun registerUser(
-        @Body userInfo: RequestRegisterUser
+        @Body user: RequestRegisterUser
     ): ResponseRegisterUser
 }
