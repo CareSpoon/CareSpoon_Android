@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+    <application
+        android:usesCleartextTraffic="true"
+        android:name=".CareSpoonApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/img_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CareSpoon"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.setting.DeleteAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.setting.ChangeInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.friends.AddFriendActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.sign.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.sign.SignUpDoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.RecordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.friends.FriendsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.statistics.StatisticsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.setting.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.sign.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/black" />
+    </application>
+
+</manifest>

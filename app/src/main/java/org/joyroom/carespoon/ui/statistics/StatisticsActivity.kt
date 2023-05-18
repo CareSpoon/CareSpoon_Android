@@ -1,0 +1,38 @@
+package org.joyroom.carespoon.ui.statistics
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.google.android.material.tabs.TabLayoutMediator
+import org.joyroom.carespoon.databinding.ActivityStatisticsBinding
+
+class StatisticsActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityStatisticsBinding
+    private lateinit var statisticsViewPagerAdapter: StatisticsViewPagerAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityStatisticsBinding.inflate(layoutInflater)
+
+        initAdapter()
+        initTabLayout()
+
+        setContentView(binding.root)
+    }
+
+    private fun initAdapter() {
+        val fragmentList = listOf(DailyFragment(), MonthlyFragment())
+
+        statisticsViewPagerAdapter = StatisticsViewPagerAdapter(this)
+        statisticsViewPagerAdapter.fragments.addAll(fragmentList)
+
+        binding.vpStatistics.adapter = statisticsViewPagerAdapter
+    }
+
+    private fun initTabLayout(){
+        val tabLabel = listOf("Daily", "Monthly")
+
+        TabLayoutMediator(binding.tlMenu, binding.vpStatistics) {
+            tab, position -> tab.text = tabLabel[position]
+        }.attach()
+    }
+}
