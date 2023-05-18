@@ -9,6 +9,7 @@ object CareSpoonSharedPreferences {
     private const val PREFERENCES_NAME = "EASY_PEASY_PREFERENCES"
     private const val KEY_ACCESS_TOKEN = "KEY_ACCESS_TOKEN"
     private const val KEY_USER_NAME = "KEY_USER_NAME"
+    private const val KEY_EMAIL = "KEY_EMAIL"
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
@@ -21,15 +22,6 @@ object CareSpoonSharedPreferences {
         }
     }
 
-    fun setAccessToken(token: String?){
-        preferences.edit {
-            if (token == null) remove(KEY_ACCESS_TOKEN)
-            else putString(KEY_ACCESS_TOKEN, token)
-        }
-    }
-
-    fun getAccessToken(): String? = preferences.getString(KEY_ACCESS_TOKEN, null)
-
     fun setUserName(token: String?){
         preferences.edit {
             if (token == null) {
@@ -41,5 +33,17 @@ object CareSpoonSharedPreferences {
     }
 
     fun getUserName(): String? = preferences.getString(KEY_USER_NAME, null)
+
+    fun setUserEmail(token: String?){
+        preferences.edit {
+            if (token == null) {
+                remove(KEY_EMAIL)
+            } else {
+                putString(KEY_EMAIL, token)
+            }
+        }
+    }
+
+    fun getUserEmail(): String? = preferences.getString(KEY_EMAIL, null)
 
 }
