@@ -1,19 +1,19 @@
 package org.joyroom.carespoon.data.remote.response.userinfo
 
 data class ResponseRegisterUserInfo(
-    val age: Int,
-    val height: Double,
     val id: Int,
-    val metabolicRate: Double,
+    val age: Int,
     val sex: Int,
-    val user: User,
-    val weight: Double
+    val height: Double,
+    val weight: Double,
+    val metabolicRate: Double,
+    val user: User
 )
 
 data class User(
-    val email: String,
     val id: Int,
+    val uuid: String,
+    val email: String,
     val name: String,
-    val role: String,
-    val uuid: String
+    val role: String
 )
