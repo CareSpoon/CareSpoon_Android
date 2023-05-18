@@ -3,6 +3,7 @@ package org.joyroom.carespoon.ui.friends
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import org.joyroom.carespoon.data.CareSpoonSharedPreferences
 import org.joyroom.carespoon.data.local.FriendsData
 import org.joyroom.carespoon.databinding.ActivityFriendsBinding
 import org.joyroom.carespoon.ui.setting.SettingActivity
@@ -16,10 +17,14 @@ class FriendsActivity : AppCompatActivity() {
         binding = ActivityFriendsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setUUID()
         initAdapter()
         setIntent()
     }
 
+    private fun setUUID(){
+        binding.tvUniqueCodeValue.text = CareSpoonSharedPreferences.getUUID()
+    }
     private fun initAdapter(){
         friendsAdapter = FriendsAdapter()
         binding.rvFriendsList.adapter = friendsAdapter
