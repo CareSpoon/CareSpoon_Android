@@ -10,6 +10,8 @@ object CareSpoonSharedPreferences {
     private const val KEY_ACCESS_TOKEN = "KEY_ACCESS_TOKEN"
     private const val KEY_USER_NAME = "KEY_USER_NAME"
     private const val KEY_EMAIL = "KEY_EMAIL"
+    private const val KEY_UUID = "KEY_UUID"
+
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
@@ -22,6 +24,7 @@ object CareSpoonSharedPreferences {
         }
     }
 
+    // 개선 사항: name, email 빼고 viewModel로 처리할 것
     fun setUserName(token: String?){
         preferences.edit {
             if (token == null) {
@@ -45,5 +48,17 @@ object CareSpoonSharedPreferences {
     }
 
     fun getUserEmail(): String? = preferences.getString(KEY_EMAIL, null)
+
+    fun setUUID(token: String?){
+        preferences.edit {
+            if (token == null) {
+                remove(KEY_UUID)
+            } else {
+                putString(KEY_UUID, token)
+            }
+        }
+    }
+
+    fun getUUID(): String? = preferences.getString(KEY_UUID, null)
 
 }

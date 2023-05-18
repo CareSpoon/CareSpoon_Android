@@ -11,11 +11,17 @@ import org.joyroom.carespoon.data.CareSpoonSharedPreferences
 import org.joyroom.carespoon.data.api.RetrofitBuilder
 import org.joyroom.carespoon.data.remote.request.user.RequestRegisterUser
 import org.joyroom.carespoon.data.remote.response.user.ResponseRegisterUser
+import org.joyroom.carespoon.data.remote.response.userinfo.ResponseRegisterUserInfo
 
 class SignViewModel(application: Application) : AndroidViewModel(application) {
     private val _uuid = MutableLiveData<ResponseRegisterUser>()
     val uuid: LiveData<ResponseRegisterUser>
         get() = _uuid
+
+
+    private val _userInfo = MutableLiveData<ResponseRegisterUserInfo>()
+    val userInfo: LiveData<ResponseRegisterUserInfo>
+        get() = _userInfo
 
     fun saveUserName(token: String?){
         viewModelScope.launch(Dispatchers.IO) {
@@ -35,6 +41,7 @@ class SignViewModel(application: Application) : AndroidViewModel(application) {
                 RequestRegisterUser(name, email, role)
             )
         )
+        CareSpoonSharedPreferences.setUUID(uuid.value?.userId)
     }
 
     fun postUserInfo(){

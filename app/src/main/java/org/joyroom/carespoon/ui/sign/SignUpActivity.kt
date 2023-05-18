@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import org.joyroom.carespoon.R
 import org.joyroom.carespoon.data.CareSpoonSharedPreferences
 import org.joyroom.carespoon.databinding.ActivitySignUpBinding
@@ -25,6 +26,14 @@ class SignUpActivity : AppCompatActivity() {
         setNextButton()
     }
 
+    private fun setNextButton(){
+        binding.clNext.setOnClickListener {
+            initInternet()
+            startActivity(Intent(this, SignUpDoneActivity::class.java))
+            finish()
+        }
+    }
+
     private fun setUserRole() {
         binding.clGeneral.setOnClickListener{
             binding.clGeneral.isSelected = true
@@ -38,17 +47,12 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun setNextButton(){
-        binding.clNext.setOnClickListener {
-            initInternet()
-            startActivity(Intent(this, SignUpDoneActivity::class.java))
-            finish()
-        }
-    }
-
     private fun initInternet(){
         val name = CareSpoonSharedPreferences.getUserName()
         val email = CareSpoonSharedPreferences.getUserEmail()
+        viewModel.uuid.observe(this, Observer { uuid ->
+            CareSpoonSharedPreferences.setUUID(uuid.userId)
+        })
         if (name != null && email != null) {
             viewModel.requestSign(name, email, role)
         }
