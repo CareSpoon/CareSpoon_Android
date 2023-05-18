@@ -50,9 +50,12 @@ class SignUpActivity : AppCompatActivity() {
     private fun initInternet(){
         val name = CareSpoonSharedPreferences.getUserName()
         val email = CareSpoonSharedPreferences.getUserEmail()
+        CareSpoonSharedPreferences.setUserRole(role)
+
         viewModel.uuid.observe(this, Observer { uuid ->
             CareSpoonSharedPreferences.setUUID(uuid.userId)
         })
+
         if (name != null && email != null) {
             viewModel.requestSign(name, email, role)
         }
