@@ -126,7 +126,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/anekbanglabold"
-                    android:text="@string/main_birth"
+                    android:text="@string/main_age"
                     android:textColor="@color/gray06"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -142,7 +142,20 @@
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_birth"
-                    tools:text="Sep 25, 2001" />
+                    tools:text="22" />
+
+                <TextView
+                    android:id="@+id/tv_user_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/main_age_2"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_user_birth"
+                    app:layout_constraintStart_toEndOf="@+id/tv_user_birth"
+                    app:layout_constraintTop_toTopOf="@+id/tv_user_birth" />
 
                 <TextView
                     android:id="@+id/tv_height"

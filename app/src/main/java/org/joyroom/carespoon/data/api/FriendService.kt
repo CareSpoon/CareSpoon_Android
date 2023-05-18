@@ -8,10 +8,12 @@ import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface FriendService {
     @GET("user/{uuid}")
     suspend fun searchUser(
+        @Path("uuid") uuid: String
     ): ResponseSearchUser
 
     @POST("friendlist")
@@ -21,13 +23,17 @@ interface FriendService {
 
     @GET("friendsof/senior/{uuid}")
     suspend fun getSeniorFriendList(
+        @Path("uuid") uuid: String
     ): ResponseSeniorFriendList
 
     @GET("friendsof/viewr/{uuid}")
     suspend fun getViewerFriendList(
+        @Path("uuid") uuid: String
     ): ResponseViewerFriendList
 
     @DELETE("friendlist/remove/{seniorId}/{viewerId}")
     suspend fun deleteFriend(
+        @Path("seniorId") seniorId: String,
+        @Path("viewerId") viewerId: String
     )
 }

@@ -24,7 +24,6 @@ object CareSpoonSharedPreferences {
         }
     }
 
-    // 개선 사항: name, email 빼고 viewModel로 처리할 것
     fun setUserName(token: String?){
         preferences.edit {
             if (token == null) {
@@ -37,6 +36,7 @@ object CareSpoonSharedPreferences {
 
     fun getUserName(): String? = preferences.getString(KEY_USER_NAME, null)
 
+    // 개선 사항 email은 여기서 빼고 viewModel로 처리할 것
     fun setUserEmail(token: String?){
         preferences.edit {
             if (token == null) {
