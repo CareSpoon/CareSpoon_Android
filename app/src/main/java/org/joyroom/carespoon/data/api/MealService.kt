@@ -9,6 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
 
 interface MealService {
     @Multipart
@@ -19,13 +20,19 @@ interface MealService {
 
     @GET("dailymeals/{userId}/{date}")
     suspend fun getDayMealList(
-    ): ResponseDayMealList
+        @Path("userId") userId: String,
+        @Path("date") date: String
+        ): ResponseDayMealList
 
     @GET("dailystatistics/{userId}/{date}")
     suspend fun getDailyStatistics(
+        @Path("userId") userId: String,
+        @Path("date") date: String
     ): ResponseDailyStatistics
 
     @GET("monthlystatistics/{userId}/{month}")
     suspend fun getMonthlyStatistics(
+        @Path("userId") userId: String,
+        @Path("month") month: String
     ): ResponseMonthlyStatistics
 }

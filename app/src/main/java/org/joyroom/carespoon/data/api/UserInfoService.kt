@@ -6,6 +6,7 @@ import org.joyroom.carespoon.data.remote.response.userinfo.ResponseUserInfo
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface UserInfoService {
     @POST("userinfo")
@@ -15,5 +16,6 @@ interface UserInfoService {
 
     @GET("userinfo/{userId}")
     suspend fun getUserInfo(
+        @Path("userId") userId: String
     ): ResponseUserInfo
 }
