@@ -2,6 +2,7 @@ package org.joyroom.carespoon.ui.viewModel
 
 import android.app.Application
 import android.text.Editable
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -40,15 +41,18 @@ class FriendsViewModel(application: Application) : AndroidViewModel(application)
         )
     }
 
-    fun requestUser(uuid: Editable) = viewModelScope.launch(Dispatchers.IO) {
+    fun searchUser(uuid: Editable) = viewModelScope.launch(Dispatchers.IO) {
         _userList.postValue(
-            RetrofitBuilder.friendService.searchUser(uuid.toString())
+            RetrofitBuilder.friendService.searchUser(uuid.toString()).body()
         )
     }
 
-    fun requestAddFriend(viewerUUID: String, seniorUUID: String) = viewModelScope.launch(Dispatchers.IO){
-        RetrofitBuilder.friendService.addFriend(
-            RequestAddFriend(viewerUUID, seniorUUID)
-        )
+    fun requestDeleteFriend(seniorUUID: String, viewerUUID: String) = viewModelScope.launch(Dispatchers.IO) {
+        RetrofitBuilder.friendService.deleteFriend(seniorUUID, viewerUUID)
+    }
+
+    fun requestAddFriend(viewerUUID: String, seniorUUID: String) = viewModelScope.launch(Dispatchers.IO) {
+        RetrofitBuilder.friendService.addFriend(RequestAddFriend(viewerUUID, seniorUUID))
+
     }
 }
