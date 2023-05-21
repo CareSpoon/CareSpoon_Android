@@ -4,7 +4,12 @@
     <string name="google_login_client_id">591438814977-crtcc1r9096f191u08nq75dnkmo45gtg.apps.googleusercontent.com</string>
     <string name="default_notification_channel_id">care_spoon_channel</string>
 
+    <!-- toast -->
     <string name="preparing">준비 중인 기능입니다.</string>
+    <string name="do_not_contain_dot">고유 코드는 . 을 포함할 수 없습니다.</string>
+    <string name="no_user">해당하는 유저가 없습니다.</string>
+    <string name="delete">친구 목록에서 삭제되었습니다.</string>
+    <string name="add">친구 목록에 추가되었습니다.</string>
 
     <!-- splash -->
     <string name="splash_description">Personal Health Care Service</string>
