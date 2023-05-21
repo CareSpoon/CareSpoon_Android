@@ -11,6 +11,7 @@ object CareSpoonSharedPreferences {
     private const val KEY_USER_NAME = "KEY_USER_NAME"
     private const val KEY_EMAIL = "KEY_EMAIL"
     private const val KEY_UUID = "KEY_UUID"
+    private const val KEY_ROLE = "KEY_ROLE"
 
 
     fun init(context: Context) {
@@ -60,5 +61,17 @@ object CareSpoonSharedPreferences {
     }
 
     fun getUUID(): String? = preferences.getString(KEY_UUID, null)
+
+    fun setUserRole(token: String?){
+        preferences.edit {
+            if (token == null) {
+                remove(KEY_ROLE)
+            } else {
+                putString(KEY_ROLE, token)
+            }
+        }
+    }
+
+    fun getUserRole(): String? = preferences.getString(KEY_ROLE, null)
 
 }

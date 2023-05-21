@@ -26,6 +26,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginHorizontal="15dp"
         android:maxLines="1"
+        android:singleLine="true"
         android:paddingVertical="15dp"
         android:paddingStart="50dp"
         android:paddingEnd="10dp"
@@ -46,17 +47,48 @@
         app:layout_constraintTop_toTopOf="@+id/et_search"
         app:srcCompat="@drawable/ic_search" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_user_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="15dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="27dp"
+        android:fontFamily="@font/anekbangla"
+        android:textSize="20sp"
+        android:textColor="@color/gray05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_search"
+        tools:text="김현아"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="15dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/bg_green01_round_selector"
+        android:fontFamily="@font/anekbangla"
+        android:text="@string/add_friend_add"
+        android:textColor="@color/green01"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_user_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_user_name"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_user_null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:fontFamily="@font/anekbangla"
+        android:text="@string/add_friend_null"
+        android:textColor="@color/gray05"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_search"
-        tools:listitem="@layout/item_user_list"/>
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
