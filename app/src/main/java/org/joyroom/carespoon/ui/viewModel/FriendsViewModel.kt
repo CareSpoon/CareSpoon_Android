@@ -29,6 +29,7 @@ class FriendsViewModel(application: Application) : AndroidViewModel(application)
         get() = _userList
 
 
+    // GET - response 만 존재
     fun requestSeniorFriendList(uuid: String) = viewModelScope.launch(Dispatchers.IO) {
         _seniorFriendList.postValue(
             RetrofitBuilder.friendService.getSeniorFriendList(uuid)
@@ -47,12 +48,14 @@ class FriendsViewModel(application: Application) : AndroidViewModel(application)
         )
     }
 
+
+    // DELETE - request 도 response 도 없이 path param 만 존재
     fun requestDeleteFriend(seniorUUID: String, viewerUUID: String) = viewModelScope.launch(Dispatchers.IO) {
         RetrofitBuilder.friendService.deleteFriend(seniorUUID, viewerUUID)
     }
 
+    // POST - request 만 존재
     fun requestAddFriend(viewerUUID: String, seniorUUID: String) = viewModelScope.launch(Dispatchers.IO) {
         RetrofitBuilder.friendService.addFriend(RequestAddFriend(viewerUUID, seniorUUID))
-
     }
 }
