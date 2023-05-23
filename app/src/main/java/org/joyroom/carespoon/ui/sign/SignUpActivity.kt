@@ -3,6 +3,7 @@ package org.joyroom.carespoon.ui.sign
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -15,7 +16,7 @@ import org.joyroom.carespoon.ui.viewModel.SignViewModel
 class SignUpActivity : AppCompatActivity() {
     private val viewModel: SignViewModel by viewModels()
     private lateinit var binding: ActivitySignUpBinding
-    private lateinit var role: String
+    private var role = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +29,11 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun setNextButton(){
         binding.clNext.setOnClickListener {
-            initInternet()
-            startActivity(Intent(this, SignUpDoneActivity::class.java))
-            finish()
+            if (role.isNotEmpty()) {
+                initInternet()
+                startActivity(Intent(this, SignUpDoneActivity::class.java))
+                finish()
+            } else Toast.makeText(this, R.string.fill_all, Toast.LENGTH_SHORT).show()
         }
     }
 

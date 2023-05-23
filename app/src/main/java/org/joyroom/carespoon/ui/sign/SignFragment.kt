@@ -27,8 +27,6 @@ class SignFragment : Fragment() {
     private val googleSignInClient: GoogleSignInClient by lazy { getGoogleClient() }
     private val googleAuthLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-            // 푸시 알림 관련 토큰인 듯
-            // val pushToken = CareSpoonSharedPreferences.getPushToken() ?: return@registerForActivityResult
 
             try {
                 val account = task.getResult(ApiException::class.java)
@@ -50,10 +48,6 @@ class SignFragment : Fragment() {
     ): View {
         binding = FragmentSignBinding.inflate(inflater, container, false)
 
-        // 임시 인텐트
-        binding.ivLogo.setOnClickListener{
-            startActivity(Intent(requireContext(), SignUpActivity::class.java))
-        }
         addListener()
         return binding.root
     }

@@ -11,6 +11,7 @@
     <string name="delete">친구 목록에서 삭제되었습니다.</string>
     <string name="add">친구 목록에 추가되었습니다.</string>
     <string name="move">촬영 대상이 올바르지 않습니다.</string>
+    <string name="fill_all">정보를 모두 입력해주세요.</string>
 
     <!-- splash -->
     <string name="splash_description">Personal Health Care Service</string>
