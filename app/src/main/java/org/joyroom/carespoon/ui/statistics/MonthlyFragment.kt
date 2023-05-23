@@ -2,11 +2,14 @@ package org.joyroom.carespoon.ui.statistics
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.components.XAxis
@@ -18,27 +21,74 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import org.joyroom.carespoon.R
+import org.joyroom.carespoon.data.CareSpoonSharedPreferences
 import org.joyroom.carespoon.databinding.FragmentMonthlyBinding
+import org.joyroom.carespoon.ui.viewModel.StatisticsViewModel
+import java.time.LocalDate
+import kotlin.properties.Delegates
 
 class MonthlyFragment : Fragment() {
     private lateinit var binding: FragmentMonthlyBinding
+    private val viewModel: StatisticsViewModel by activityViewModels()
+    private var carbon by Delegates.notNull<Double>()
+    private var fat by Delegates.notNull<Double>()
+    private var protein by Delegates.notNull<Double>()
+    private var kcal by Delegates.notNull<Double>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMonthlyBinding.inflate(inflater, container, false)
-        setPieChart()
-        setBarChart()
+
+        setDefault()
+        setStatisticData()
 
         return binding.root
     }
 
-    private fun setPieChart() { // 숫자 없애거나 안되면 246색으로라도 바꿔야 함
+    private fun setDefault() { // 추후에 < > 버튼으로 날짜 바꾸는 것 까지 적용하기
+        var date = LocalDate.now().toString().slice(0..6)
+        binding.tvDate.text = date
+        CareSpoonSharedPreferences.getUUID()?.let { viewModel.requestMonthList(it, date) }
+
+        binding.tvNumber.text = String.format("%.2f", CareSpoonSharedPreferences.getUserKcal()!!.toFloat() * 30)
+    }
+
+    private fun setStatisticData(){
+        viewModel.monthlyStatisticData.observe(viewLifecycleOwner, Observer { statisticData ->
+            carbon = statisticData.meal_Carbon
+            fat = statisticData.meal_Fat
+            protein = statisticData.meal_Protein
+            kcal = statisticData.meal_Kcal
+        })
+
+        setChart()
+    }
+
+    private fun setChart(){
+        viewModel.noMonthData.observe(viewLifecycleOwner, Observer{
+            it.getContentIfNotHandled()?.let {
+                setPieChart(0f)
+                setBarChart(0f, 0f, 0f)
+            }
+        })
+
+        viewModel.withMonthData.observe(viewLifecycleOwner, Observer {
+            it.getContentIfNotHandled()?.let {
+                setPieChart(String.format("%.2f", kcal).toFloat())
+                setBarChart((String.format("%.2f", carbon).toFloat()), (String.format("%.2f", protein).toFloat()), (String.format("%.2f", fat).toFloat()))
+            }
+        })
+    }
+
+    private fun setPieChart(kcal: Float) {
         // 1. [PieEntry] Chart에 표시될 데이터 값 생성
         val entries = ArrayList<PieEntry>()
-        entries.add(PieEntry(50f, ""))
-        entries.add(PieEntry(50f, ""))
+        val maximum = CareSpoonSharedPreferences.getUserKcal()!!.toFloat() * 30
+
+        entries.add(PieEntry(kcal, ""))
+        entries.add(PieEntry(maximum - kcal, ""))
 
         val colorList = intArrayOf(Color.rgb(80, 189, 111), Color.rgb(246, 246, 246))
         val colorItems = ArrayList<Int>()
@@ -58,7 +108,7 @@ class MonthlyFragment : Fragment() {
             description.isEnabled = false
             isRotationEnabled = false
             legend.isEnabled = false
-            centerText = "465Kcal"
+            centerText = "${kcal}kcal"
             setTouchEnabled(false)
             setCenterTextColor(R.color.black)
             setCenterTextSize(24F)
@@ -67,14 +117,14 @@ class MonthlyFragment : Fragment() {
         }
     }
 
-    private fun setBarChart() {
+    private fun setBarChart(carbon: Float, protein: Float, fat: Float) {
         configureBarChartAppearance()
 
         // 1. [BarEntry] BarChart에 표시될 데이터 값 생성
         val entries = ArrayList<BarEntry>()
-        entries.add(BarEntry(0f, 27f))
-        entries.add(BarEntry(1f, 45f))
-        entries.add(BarEntry(2f, 65f))
+        entries.add(BarEntry(0f, fat))
+        entries.add(BarEntry(1f, protein))
+        entries.add(BarEntry(2f, carbon))
 
         // 2. [BarDataSet] 단순 데이터를 막대 모양으로 표시, BarChart의 막대 커스텀
         val barDataSet = BarDataSet(entries, "")
@@ -105,6 +155,7 @@ class MonthlyFragment : Fragment() {
             xAxis.labelCount = xVals.size
             xAxis.valueFormatter = IndexAxisValueFormatter(xVals)
             xAxis.position = XAxis.XAxisPosition.BOTTOM
+            setDrawValueAboveBar(true)
         }
     }
 
@@ -127,8 +178,10 @@ class MonthlyFragment : Fragment() {
 
         val yLeft = skillRatingChart.axisLeft
         //Set the minimum and maximum bar lengths as per the values that they represent
-        yLeft.axisMaximum = 100f
+        // yLeft.axisMaximum = CareSpoonSharedPreferences.getUserKcal()!!.toFloat()
+        yLeft.axisMaximum = 3000f
         yLeft.axisMinimum = 0f
+        yLeft.spaceTop = 10f
         yLeft.isEnabled = false
 
         val yRight = skillRatingChart.axisRight
@@ -136,6 +189,7 @@ class MonthlyFragment : Fragment() {
         yRight.setDrawGridLines(false)
         yRight.isEnabled = false
     }
+
     companion object {
     }
 }
