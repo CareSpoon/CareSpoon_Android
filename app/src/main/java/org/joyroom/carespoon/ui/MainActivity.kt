@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         if (uuid != null) {
             viewModel.requestUserInfo(uuid)
         }
+
+        viewModel.userInfo.observe(this, Observer { userInfo ->
+            CareSpoonSharedPreferences.setUserKcal(userInfo.metabolicRate.toString())
+        })
     }
     private fun setUserInfo(){
         binding.tvName.text = CareSpoonSharedPreferences.getUserName()
