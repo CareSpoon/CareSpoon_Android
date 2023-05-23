@@ -170,7 +170,13 @@ class CameraActivity : AppCompatActivity() {
 
                     viewModel.showErrorToast.observe(this@CameraActivity, Observer {
                         it.getContentIfNotHandled()?.let{
-                            Toast.makeText(baseContext, R.string.move, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(baseContext, R.string.capture_fail, Toast.LENGTH_SHORT).show()
+                        }
+                    })
+
+                    viewModel.showDoneToast.observe(this@CameraActivity, Observer {
+                        it.getContentIfNotHandled()?.let{
+                            Toast.makeText(baseContext, R.string.capture_done, Toast.LENGTH_SHORT).show()
                         }
                     })
                 }

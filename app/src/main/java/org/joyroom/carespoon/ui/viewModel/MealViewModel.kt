@@ -26,6 +26,9 @@ class MealViewModel(application: Application) : AndroidViewModel(application) {
     private val _showErrorToast = MutableLiveData<Event<Boolean>>()
     val showErrorToast: LiveData<Event<Boolean>> = _showErrorToast
 
+    private val _showDoneToast = MutableLiveData<Event<Boolean>>()
+    val showDoneToast: LiveData<Event<Boolean>> = _showDoneToast
+
     fun requestMealList(uuid: String, date: String) = viewModelScope.launch(Dispatchers.IO) {
         _mealList.postValue(
             RetrofitBuilder.mealService.getDayMealList(uuid, date)
@@ -36,6 +39,7 @@ class MealViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 _mealInfo.postValue(RetrofitBuilder.mealService.postMeal(image, uuid, tag))
+                _showDoneToast.postValue(Event(true))
             } catch (e: HttpException) {
                 _showErrorToast.postValue(Event(true))
             }
