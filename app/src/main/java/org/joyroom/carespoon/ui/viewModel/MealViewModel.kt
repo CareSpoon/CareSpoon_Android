@@ -30,9 +30,13 @@ class MealViewModel(application: Application) : AndroidViewModel(application) {
     val showDoneToast: LiveData<Event<Boolean>> = _showDoneToast
 
     fun requestMealList(uuid: String, date: String) = viewModelScope.launch(Dispatchers.IO) {
-        _mealList.postValue(
-            RetrofitBuilder.mealService.getDayMealList(uuid, date)
-        )
+        try {
+            _mealList.postValue(
+                RetrofitBuilder.mealService.getDayMealList(uuid, date)
+            )
+        }catch (e: HttpException){
+
+        }
     }
 
     fun requestUploadPhoto(image: MultipartBody.Part?, uuid: String, tag: String) =

@@ -9,6 +9,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.util.Log
@@ -88,20 +90,13 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
-    private fun setArea() {
-        binding.ivTakeBtn.setOnClickListener {
-            takePhoto()
-        }
-    }
-
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
         cameraProviderFuture.addListener({
-            // Used to bind the lifecycle of cameras to the lifecycle owner
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
-            // Preview
             preview = Preview.Builder()
                 .build()
                 .also {
@@ -109,48 +104,28 @@ class CameraActivity : AppCompatActivity() {
                 }
 
             imageCapture = ImageCapture.Builder().build()
-            // imageCapture = ImageCapture.Builder().setTargetResolution(Size(150, 200)).build() -> 해상도 조절
 
-            // Select back camera as a default
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-
-            try {
-                // Unbind use cases before rebinding
-                cameraProvider.unbindAll()
-
-                // Bind use cases to camera
-                cameraProvider.bindToLifecycle(
-                    this,
-                    cameraSelector,
-                    preview,
-                    imageCapture
-                )
-
+            try { cameraProvider.unbindAll()
+                cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture)
             } catch (exc: Exception) {
                 Log.d("CameraX-Debug", "Use case binding failed", exc)
             }
-
         }, ContextCompat.getMainExecutor(this))
     }
 
+    private fun setArea() {
+        binding.ivTakeBtn.setOnClickListener {
+            takePhoto()
+            initVibrate()
+        }
+    }
+
     private fun takePhoto() {
-        // Get a stable reference of the modifiable image capture use case
         val imageCapture = imageCapture ?: return
-
-        // Create time-stamped output file to hold the image
-        val photoFile = File(
-            outputDirectory,
-            newJpgFileName()
-        )
-
-        // Create output options object which contains file + metadata
+        val photoFile = File(outputDirectory, newJpgFileName())
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
 
-        // Set up image capture listener, which is triggered after photo has
-        // been taken
-        imageCapture.takePicture(
-            outputOptions,
-            ContextCompat.getMainExecutor(this),
+        imageCapture.takePicture(outputOptions, ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onError(exc: ImageCaptureException) {
                     Log.d("CameraX-Debug", "Photo capture failed: ${exc.message}", exc)
@@ -167,6 +142,8 @@ class CameraActivity : AppCompatActivity() {
                     val tag = intent.getStringExtra("tag").toString()
 
                     viewModel.requestUploadPhoto(image, uuid, tag)
+
+                    Toast.makeText(baseContext, R.string.capture_ing, Toast.LENGTH_SHORT).show()
 
                     viewModel.showErrorToast.observe(this@CameraActivity, Observer {
                         it.getContentIfNotHandled()?.let{
@@ -198,6 +175,11 @@ class CameraActivity : AppCompatActivity() {
         }
         return if ((mediaDir != null) && mediaDir.exists()) mediaDir
         else filesDir
+    }
+
+    private fun initVibrate() {
+        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        vibrator.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE))
     }
 
     override fun onDestroy() {
