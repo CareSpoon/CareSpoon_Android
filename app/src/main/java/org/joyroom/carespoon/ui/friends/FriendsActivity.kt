@@ -42,6 +42,15 @@ class FriendsActivity : AppCompatActivity() {
         setIntent()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        setUUID()
+        setByRole()
+        setKeyboard()
+        setIntent()
+    }
+
     private fun setUUID() {
         binding.tvUniqueCodeValue.text = CareSpoonSharedPreferences.getUUID()
     }

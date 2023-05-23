@@ -24,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
+        android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,51 +90,69 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cl_notification" />
 
-            <TextView
-                android:id="@+id/tv_info"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_change"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="43dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/anekbangla"
-                android:text="@string/settings_info"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_account" />
-
-            <ImageView
-                android:id="@+id/iv_change_info"
-                android:layout_width="11dp"
-                android:layout_height="18dp"
-                android:layout_marginEnd="35dp"
-                android:src="@drawable/ic_arrow_right"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_info"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_info" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_account">
 
-            <TextView
-                android:id="@+id/tv_delete"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tv_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/settings_info"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_change_info"
+                    android:layout_width="11dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_info"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_info" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_delete"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="43dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/anekbangla"
-                android:text="@string/settings_delete"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_info" />
-
-            <ImageView
-                android:id="@+id/iv_delete_account"
-                android:layout_width="11dp"
-                android:layout_height="18dp"
-                android:layout_marginEnd="35dp"
-                android:src="@drawable/ic_arrow_right"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_delete"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_delete" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_change">
+
+                <TextView
+                    android:id="@+id/tv_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/settings_delete"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_delete_account"
+                    android:layout_width="11dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_delete"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_delete" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/tv_about"
@@ -146,77 +165,103 @@
                 android:textColor="@color/green02"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_delete" />
+                app:layout_constraintTop_toBottomOf="@+id/cl_delete" />
 
-            <TextView
-                android:id="@+id/tv_opensource"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_opensource"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="43dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/anekbangla"
-                android:text="@string/settings_opensource"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_about" />
-
-            <ImageView
-                android:id="@+id/iv_open_source"
-                android:layout_width="11dp"
-                android:layout_height="18dp"
-                android:layout_marginEnd="35dp"
-                android:src="@drawable/ic_arrow_right"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_opensource"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_opensource" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_about">
 
-            <TextView
-                android:id="@+id/tv_policy"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tv_opensource"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/settings_opensource"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_open_source"
+                    android:layout_width="11dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_opensource"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_opensource" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_policy"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="43dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/anekbangla"
-                android:text="@string/settings_policy"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_opensource" />
-
-            <ImageView
-                android:id="@+id/iv_privacy_policy"
-                android:layout_width="11dp"
-                android:layout_height="18dp"
-                android:layout_marginEnd="35dp"
-                android:src="@drawable/ic_arrow_right"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_policy"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_policy" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_opensource">
 
-            <TextView
-                android:id="@+id/tv_developers"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tv_policy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/settings_policy"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_privacy_policy"
+                    android:layout_width="11dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_policy"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_policy" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_developers"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="43dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/anekbangla"
-                android:text="@string/settings_developers"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_policy" />
-
-            <ImageView
-                android:id="@+id/iv_developers"
-                android:layout_width="11dp"
-                android:layout_height="18dp"
-                android:layout_marginEnd="35dp"
-                android:src="@drawable/ic_arrow_right"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_developers"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_developers" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_policy">
 
+                <TextView
+                    android:id="@+id/tv_developers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/anekbangla"
+                    android:text="@string/settings_developers"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_developers"
+                    android:layout_width="11dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_developers"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_developers" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

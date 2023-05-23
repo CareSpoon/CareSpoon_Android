@@ -29,7 +29,14 @@ class RecordActivity : AppCompatActivity() {
         setMealRecord()
         setIntent()
         setDate()
+    }
 
+    override fun onResume() {
+        super.onResume()
+
+        setMealRecord()
+        setIntent()
+        setDate()
     }
 
     private fun setDate() { // 추후에 < > 버튼으로 날짜 바꾸는 것 까지 적용하기

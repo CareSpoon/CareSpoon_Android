@@ -21,13 +21,13 @@ class SettingActivity : AppCompatActivity() {
     }
 
     private fun setIntent(){
-        binding.ivChangeInfo.setOnClickListener {
+        binding.clChange.setOnClickListener {
             startActivity(Intent(this, ChangeInfoActivity::class.java))
         }
     }
 
     private fun setToast(){
-        val btnList = listOf(binding.ivDevelopers, binding.ivOpenSource, binding.ivDeleteAccount, binding.ivPrivacyPolicy)
+        val btnList = listOf(binding.clDevelopers, binding.clOpensource, binding.clDelete, binding.clPolicy)
 
         btnList.forEach{
             it.setOnClickListener {
