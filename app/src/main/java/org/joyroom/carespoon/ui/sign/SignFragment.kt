@@ -47,7 +47,7 @@ class SignFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSignBinding.inflate(inflater, container, false)
-        
+
         addListener()
         return binding.root
     }
