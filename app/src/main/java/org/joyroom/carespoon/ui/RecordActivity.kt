@@ -96,17 +96,19 @@ class RecordActivity : AppCompatActivity() {
 
     private fun setIntent() {
         binding.clBreakfastNull.setOnClickListener {
-            startActivity(Intent(this, CameraActivity::class.java))
+            val intent = Intent(this, CameraActivity::class.java)
+            intent.putExtra("tag", "breakfast")
+            startActivity(intent)
         }
         binding.clLunchNull.setOnClickListener {
-            startActivity(Intent(this, CameraActivity::class.java))
+            val intent = Intent(this, CameraActivity::class.java)
+            intent.putExtra("tag", "lunch")
+            startActivity(intent)
         }
         binding.clDinnerNull.setOnClickListener {
-            startActivity(Intent(this, CameraActivity::class.java))
+            val intent = Intent(this, CameraActivity::class.java)
+            intent.putExtra("tag", "dinner")
+            startActivity(intent)
         }
     }
 }
-
-
-//if(!binding.clBreakfastNull.isVisible) Toast.makeText(this, R.string.already_posted, Toast.LENGTH_SHORT).show()
-//        else{
