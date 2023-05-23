@@ -58,7 +58,7 @@ class DailyFragment : Fragment() {
     }
 
     private fun setStatisticData(){
-        viewModel.statisticData.observe(viewLifecycleOwner, Observer { statisticData ->
+        viewModel.dailyStatisticData.observe(viewLifecycleOwner, Observer { statisticData ->
             carbon = statisticData.meal_Carbon
             fat = statisticData.meal_Fat
             protein = statisticData.meal_Protein
@@ -69,24 +69,22 @@ class DailyFragment : Fragment() {
     }
 
     private fun setChart(){
-        viewModel.noData.observe(viewLifecycleOwner, Observer{
+        viewModel.noDayData.observe(viewLifecycleOwner, Observer{
             it.getContentIfNotHandled()?.let {
                 setPieChart(0f)
                 setBarChart(0f, 0f, 0f)
-                Log.d("****Set Chart", "no data")
             }
         })
 
-        viewModel.withData.observe(viewLifecycleOwner, Observer {
+        viewModel.withDayData.observe(viewLifecycleOwner, Observer {
             it.getContentIfNotHandled()?.let {
                 setPieChart(String.format("%.2f", kcal).toFloat())
                 setBarChart((String.format("%.2f", carbon).toFloat()), (String.format("%.2f", protein).toFloat()), (String.format("%.2f", fat).toFloat()))
-                Log.d("****Set Chart", "with data")
             }
         })
     }
 
-    private fun setPieChart(kcal: Float) { // 숫자 없애거나 안되면 246색으로라도 바꿔야 함
+    private fun setPieChart(kcal: Float) {
         // 1. [PieEntry] Chart에 표시될 데이터 값 생성
         val entries = ArrayList<PieEntry>()
         val maximum = CareSpoonSharedPreferences.getUserKcal()!!.toFloat()
