@@ -45,6 +45,7 @@ class SignViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
+    // POST - request 도 response 도 존재
     fun postUserInfo(uuid: String, birth: String, sex: Int, height: Double, weight: Double) = viewModelScope.launch(Dispatchers.IO){
         _userInfo.postValue(
             RetrofitBuilder.userInfoService.registerUserInfo(
