@@ -1,5 +1,3 @@
-# CareSpoon_Android
-
 <img alt="image" src="https://github.com/akimcse/akimcse/assets/63237214/4417ab2f-7ef3-4d0e-b551-1e0cc42efb62">
 
 </br></br>
