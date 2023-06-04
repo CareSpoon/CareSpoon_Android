@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import org.whocare.carespoon.data.CareSpoonSharedPreferences
 import org.whocare.carespoon.databinding.ActivityMainBinding
 import org.whocare.carespoon.ui.friends.FriendsActivity
+import org.whocare.carespoon.ui.record.RecordActivity
 import org.whocare.carespoon.ui.setting.SettingActivity
 import org.whocare.carespoon.ui.statistics.StatisticsActivity
 import org.whocare.carespoon.ui.viewModel.UserInfoViewModel

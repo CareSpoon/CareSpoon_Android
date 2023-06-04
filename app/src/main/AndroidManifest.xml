@@ -3,27 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-feature android:name="android.hardware.camera.any" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"
         tools:ignore="ScopedStorage" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
 
 
     <application
-        android:usesCleartextTraffic="true"
-        android:requestLegacyExternalStorage="true"
         android:name=".CareSpoonApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/img_logo"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.CareSpoon"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
             android:name=".ui.setting.DeleteAccountActivity"
@@ -41,7 +44,7 @@
             android:name=".ui.sign.SignUpDoneActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.RecordActivity"
+            android:name=".ui.record.RecordActivity"
             android:exported="false" />
         <activity
             android:name=".ui.CameraActivity"

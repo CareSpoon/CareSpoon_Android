@@ -1,4 +1,4 @@
-package org.whocare.carespoon.ui
+package org.whocare.carespoon.ui.record
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import org.whocare.carespoon.data.CareSpoonSharedPreferences
 import org.whocare.carespoon.data.remote.response.meal.ResponseDayMealListItem
 import org.whocare.carespoon.databinding.ActivityRecordBinding
+import org.whocare.carespoon.ui.CameraActivity
 import org.whocare.carespoon.ui.viewModel.MealViewModel
 import java.time.LocalDate
 
