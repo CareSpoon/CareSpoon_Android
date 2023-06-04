@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CareSpoon</string>
     <string name="hello_blank_fragment">CareSpoon</string>
-    <string name="google_login_client_id">591438814977-crtcc1r9096f191u08nq75dnkmo45gtg.apps.googleusercontent.com</string>
+    <string name="google_login_client_id">323712967939-3th6ofmcggofa7dbqikk7mqajoob4qs7.apps.googleusercontent.com</string>
     <string name="default_notification_channel_id">care_spoon_channel</string>
 
     <!-- toast -->

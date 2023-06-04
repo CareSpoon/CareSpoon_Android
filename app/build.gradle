@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'org.joyroom.carespoon'
+    namespace 'org.whocare.carespoon'
     compileSdk 33
 
     defaultConfig {
-        applicationId "org.joyroom.carespoon"
+        applicationId "org.whocare.carespoon"
         minSdk 26
         targetSdk 33
         versionCode 1
