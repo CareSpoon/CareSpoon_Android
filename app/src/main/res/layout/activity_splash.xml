@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green01"
-    tools:context="org.joyroom.carespoon.ui.sign.SplashActivity">
+    tools:context="org.whocare.carespoon.ui.sign.SplashActivity">
 
     <TextView
         android:id="@+id/tv_description"
