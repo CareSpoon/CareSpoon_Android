@@ -60,8 +60,13 @@
 
     <!-- statistics -->
     <string name="statistics_title">영양 통계</string>
-    <string name="statistics_daily">일별</string>
-    <string name="statistics_monthly">월별</string>
+    <string name="statistics_mon">월</string>
+    <string name="statistics_tue">화</string>
+    <string name="statistics_wed">수</string>
+    <string name="statistics_thu">목</string>
+    <string name="statistics_fri">금</string>
+    <string name="statistics_sat">토</string>
+    <string name="statistics_sun">일</string>
     <string name="statistics_kcal">kcal</string>
     <string name="statistics_recommend">하루 권장 섭취량 : </string>
     <string name="statistics_recommend_m">한 달 권장 섭취량 : </string>

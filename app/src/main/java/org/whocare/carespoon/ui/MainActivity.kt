@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             CareSpoonSharedPreferences.setUserKcal(userInfo.metabolicRate.toString())
         })
     }
-    
+
     private fun setIntent(){
         binding.ivSettings.setOnClickListener {
             startActivity(Intent(this, SettingActivity::class.java))
