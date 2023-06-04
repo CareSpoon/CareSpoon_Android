@@ -38,7 +38,6 @@ class RecordActivity : AppCompatActivity() {
 
     private fun setDate() { // 추후에 < > 버튼으로 날짜 바꾸는 것 까지 적용하기
         var date = LocalDate.now().toString()
-        binding.tvDate.text = date
         CareSpoonSharedPreferences.getUUID()?.let { viewModel.requestMealList(it, date) }
     }
 
