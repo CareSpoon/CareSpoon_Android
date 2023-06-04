@@ -45,17 +45,14 @@
     <!-- main -->
     <string name="main_hello">안녕하세요,&#160;&#160;</string>
     <string name="main_bang">님!</string>
-    <string name="main_sex">성별</string>
-    <string name="main_age">나이</string>
-    <string name="main_age_2">세</string>
-    <string name="main_height">키</string>
-    <string name="main_weight">체중</string>
-    <string name="main_height2">cm</string>
-    <string name="main_weight2">kg</string>
+    <string name="main_breakfast">오늘 아침은\n무엇을 드셨나요?</string>
+    <string name="main_lunch">오늘 점심은\n무엇을 드셨나요?</string>
+    <string name="main_dinner">오늘 저녁은\n무엇을 드셨나요?</string>
+    <string name="main_add">눌러서 사진 추가하기</string>
     <string name="main_greeting">무엇을 도와드릴까요?</string>
     <string name="main_statistics">영양 통계</string>
     <string name="main_record">식단 기록</string>
-    <string name="main_share">친구와 공유하기</string>
+    <string name="main_share">공유하기</string>
 
 
     <!-- camera -->

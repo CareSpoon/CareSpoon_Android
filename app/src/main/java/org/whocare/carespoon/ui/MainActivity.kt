@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initInternet()
-        setUserInfo()
         setIntent()
     }
 
@@ -35,17 +34,7 @@ class MainActivity : AppCompatActivity() {
             CareSpoonSharedPreferences.setUserKcal(userInfo.metabolicRate.toString())
         })
     }
-    private fun setUserInfo(){
-        binding.tvName.text = CareSpoonSharedPreferences.getUserName()
-        viewModel.userInfo.observe(this, Observer { userInfo ->
-            binding.tvUserBirth.text = userInfo.age.toString()
-            binding.tvUserHeight.text = userInfo.height.toString()
-            binding.tvUserWeight.text = userInfo.weight.toString()
-            if(userInfo.sex == 1) binding.tvUserSex.text = "여"
-            else binding.tvUserSex.text = "여"
-        })
-    }
-
+    
     private fun setIntent(){
         binding.ivSettings.setOnClickListener {
             startActivity(Intent(this, SettingActivity::class.java))
