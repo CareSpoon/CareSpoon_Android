@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import org.whocare.carespoon.data.CareSpoonSharedPreferences
 import org.whocare.carespoon.databinding.ActivityMainBinding
 import org.whocare.carespoon.ui.friends.FriendsActivity
+import org.whocare.carespoon.ui.record.RecordActivity
 import org.whocare.carespoon.ui.setting.SettingActivity
 import org.whocare.carespoon.ui.statistics.StatisticsActivity
 import org.whocare.carespoon.ui.viewModel.UserInfoViewModel
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initInternet()
-        setUserInfo()
         setIntent()
     }
 
@@ -33,16 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.userInfo.observe(this, Observer { userInfo ->
             CareSpoonSharedPreferences.setUserKcal(userInfo.metabolicRate.toString())
-        })
-    }
-    private fun setUserInfo(){
-        binding.tvName.text = CareSpoonSharedPreferences.getUserName()
-        viewModel.userInfo.observe(this, Observer { userInfo ->
-            binding.tvUserBirth.text = userInfo.age.toString()
-            binding.tvUserHeight.text = userInfo.height.toString()
-            binding.tvUserWeight.text = userInfo.weight.toString()
-            if(userInfo.sex == 1) binding.tvUserSex.text = "여"
-            else binding.tvUserSex.text = "여"
         })
     }
 

@@ -111,7 +111,7 @@ dependencies {
     // To use CallbackToFutureAdapter
     implementation "androidx.concurrent:concurrent-futures:1.1.0"
     // Kotlin
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-guava:1.6.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-guava:1.6.4"
 
     // MPAndroidChart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'

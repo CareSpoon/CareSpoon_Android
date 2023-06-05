@@ -45,17 +45,14 @@
     <!-- main -->
     <string name="main_hello">안녕하세요,&#160;&#160;</string>
     <string name="main_bang">님!</string>
-    <string name="main_sex">성별</string>
-    <string name="main_age">나이</string>
-    <string name="main_age_2">세</string>
-    <string name="main_height">키</string>
-    <string name="main_weight">체중</string>
-    <string name="main_height2">cm</string>
-    <string name="main_weight2">kg</string>
+    <string name="main_breakfast">오늘 아침은\n무엇을 드셨나요?</string>
+    <string name="main_lunch">오늘 점심은\n무엇을 드셨나요?</string>
+    <string name="main_dinner">오늘 저녁은\n무엇을 드셨나요?</string>
+    <string name="main_add">눌러서 사진 추가하기</string>
     <string name="main_greeting">무엇을 도와드릴까요?</string>
     <string name="main_statistics">영양 통계</string>
     <string name="main_record">식단 기록</string>
-    <string name="main_share">친구와 공유하기</string>
+    <string name="main_share">공유하기</string>
 
 
     <!-- camera -->
@@ -63,8 +60,13 @@
 
     <!-- statistics -->
     <string name="statistics_title">영양 통계</string>
-    <string name="statistics_daily">일별</string>
-    <string name="statistics_monthly">월별</string>
+    <string name="statistics_mon">월</string>
+    <string name="statistics_tue">화</string>
+    <string name="statistics_wed">수</string>
+    <string name="statistics_thu">목</string>
+    <string name="statistics_fri">금</string>
+    <string name="statistics_sat">토</string>
+    <string name="statistics_sun">일</string>
     <string name="statistics_kcal">kcal</string>
     <string name="statistics_recommend">하루 권장 섭취량 : </string>
     <string name="statistics_recommend_m">한 달 권장 섭취량 : </string>
@@ -82,6 +84,19 @@
     <string name="record_fat">지 :</string>
     <string name="record_gram">g</string>
     <string name="record_kcal">kcal</string>
+
+    <!-- record detail-->
+    <string name="record_detail_title">식사에 대한 영양 정보 분석입니다</string>
+    <string name="record_detail_c">탄수화물 :</string>
+    <string name="record_detail_p">단백질 :</string>
+    <string name="record_detail_f">지방 :</string>
+    <string name="record_detail_n">나트륨 :</string>
+    <string name="record_detail_ca">칼슘 :</string>
+    <string name="record_detail_fe">철분 :</string>
+    <string name="record_detail_total">총 섭취량 :</string>
+    <string name="record_detail_full">충분해요 !</string>
+    <string name="record_detail_lack">부족해요..</string>
+
 
     <!-- friends -->
     <string name="friends_title">공유하기</string>
