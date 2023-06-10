@@ -20,12 +20,14 @@
 ## ✨ Features
 <table>
   <tr>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/002e05b0-5ee4-4982-9b4d-4dced8fcdc36"></td>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/e73c2917-5cbe-4dec-86c1-c35f2176faf7"></td>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/e241bec9-9ac0-4469-8d0c-65a0efffc709"></td>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/de677c39-d646-465d-bcc6-69d4e52d634d"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/e480aa9b-7005-479a-aab8-c627c9a84d39"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/9348ca7c-5468-4df9-b909-8ee384163119"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/68dad12b-38b5-4d2b-b1a4-7961aba96642"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/10eb9c4e-4ae4-4877-a89a-8d5833630bfa"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/bad0f05c-de8f-44f7-9f60-2300bb3dcff6"></td>
   </tr>
   <tr>
+    <td align="center"><b>스플래시</b></td>
     <td align="center"><b>구글 로그인</b></td>
     <td align="center"><b>구글 로그인 2</b></td>
     <td align="center"><b>회원 가입</b></td>
@@ -33,48 +35,67 @@
   </tr>
 </table>
 
+</br>
 구글 계정을 연동하여 간편하게 로그인이 가능하다. 이후 기초대사량 계산을 위한 간단한 신체 정보를 기입하면 회원가입을 마칠 수 있다.
 </br></br>
 
 <table>
   <tr>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/629bfe6e-abab-4fa6-aeaa-3ee57dd42e09"></td>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/bef8c204-f68e-4c10-b626-7b1cc48845b4"></td>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/630e1f5e-030b-4f73-8cc0-e2b80e364d60"></td>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/acb40d7e-af7e-4dd4-9fef-db45f86f955b"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/32b8fd59-04fa-4749-bd33-b3bf0776ef6b"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/5e2f444e-03fb-408a-8cf1-07ec915eb161"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/defa901b-ffd0-4020-9544-9b795a8b1a22"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/42993e9e-378c-4ea9-9f47-6230369cb05e"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/779ad13c-c59c-49f2-b671-1c280a77aea4"></td>
   </tr>
   <tr>
     <td align="center"><b>홈</b></td>
-    <td align="center"><b>식단 촬영</b></td>
-    <td align="center"><b>식단 자동 기록</b></td>
-    <td align="center"><b>설정</b></td>
+    <td align="center"><b>홈2</b></td>
+    <td align="center"><b>식단 세부 정보</b></td>
+    <td align="center"><b>일별 통계</b></td>
+    <td align="center"><b>월별 통계</b></td>
   </tr>
 </table>
 
-홈 화면은 시니어 사용자를 고려하여 크고 복잡하지 않은 요소들로 구성되어 있다. 본인의 신체정보를 바로 확인할 수 있고, 각 메뉴로 진입할 수 있다. </br>
-식단 기록 메뉴에 들어가서 + 버튼을 눌러 식단을 촬영하면 AI가 자동으로 사진 속 음식 정보를 분석하여 영양 정보를 기룩해준다. </br>
+</br>
+홈 화면은 시니어 사용자를 고려하여 크고 복잡하지 않은 요소들로 구성되어 있다. </br>
+빈 카드를 눌러 식단을 촬영하면 AI가 자동으로 사진 속 음식 정보를 분석하여 영양 정보를 기룩해준다. </br>
+식단 카드를 클릭하면 해당 식단에 대한 상세 영양 분석 정보를 확인할 수 있다. </br>
+영양 통계 메뉴로 진입하면 AI가 분석한 데이터를 바탕으로 일별, 월별 통계 그래프를 제공한다.</br>
 </br></br>
 
 <table>
   <tr>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/aa98bb53-931b-4e2d-83b6-1faab8d08f93"></td>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/7db222f6-7041-419f-8625-6ccfe79f0dc5"></td>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/bf098f01-b72a-48d1-aea9-ac2ba1331540"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/0ef43cb1-d04d-400d-b1e7-cd79233c7b60"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/c0924522-29e8-4597-b451-c00096429463"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/a03a16a3-8d97-4f82-a901-23b191ece2c0"></td>
     <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/fab5951b-57af-478f-94a3-c42ee8747aec"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/f26beb15-477a-4f5e-a5b8-130d2e9b1573"></td>
   </tr>
   <tr>
-    <td align="center"><b>식단 일별 통계</b></td>
-    <td align="center"><b>식단 월별 통계</b></td>
+    <td align="center"><b>식단 기록</b></td>
     <td align="center"><b>친구 관리</b></td>
     <td align="center"><b>친구 추가</b></td>
+    <td align="center"><b>설정</b></td>
+    <td align="center"><b>정보 변경</b></td>
   </tr>
 </table>
-영양 통계 메뉴로 진입하면 AI가 분석한 데이터를 바탕으로 일별, 월별 통계 그래프를 제공한다. 모든 UI는 한눈에 파악할 수 있도록 명확하고 큼직하게 구성되어 있다. </br>
+
+ </br>
+ 식단 기록 메뉴로 진입하면 주간의 아침, 점심, 저녁 식단 기록을 확인할 수 있다. 마찬가지로 식단 카드를 클릭하면 해당 식단에 대한 상세 화면으로 진입한다. </br> 
 친구와 공유하기 메뉴로 진입하면 현재 내 정보를 공유하고 있는 친구 목록을 볼 수 있고, 사용자가 원한다면 언제든 친구 관계를 끊을 수 있다. </br>
-공유하기 화면 오른쪽 상단의 + 버튼을 눌러 친구 추가 화면으로 진입하면 고유 코드를 검색하여 새 유저를 친구로 등록할 수 있다.
+공유하기 화면 오른쪽 상단의 + 버튼을 눌러 친구 추가 화면으로 진입하면 고유 코드를 검색하여 새 유저를 친구로 등록할 수 있다.</br>
+설정 화면 상단의 알림 토글 버튼을 통해 식단 촬영 시간에 대한 알림을 온/오프 할 수 있다. </br>
+회원가입 시 입력한 신체정보는 권장 섭취량의 계산에 쓰이므로, 신체 정보가 바뀔 시 언제든 자유롭게 변경할 수 있다. </br>
 </br></br></br>
 
 ## ⚙️ Tech
+
+### Project Architecture
+![image](https://github.com/CareSpoon/.github/assets/79795051/8a2c4354-07ce-49de-918e-b417a31bfa28)
+
+</br>
+
+### Android Stack
 <table class="tg">
 <tbody>
   <tr>
@@ -96,11 +117,14 @@
 </tbody>
 </table>
 
+</br>
 
 ### Software requirement
 - Android studio Flamingo 2022.2.1
 - compileSdk 33 or higher
 - minSdk 26 or higher
+
+</br>
 
 ### Hardware requirement
 - CameraX supported Android Device within [this link](https://developer.android.com/training/camerax/devices)
