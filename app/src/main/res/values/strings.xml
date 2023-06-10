@@ -87,12 +87,12 @@
 
     <!-- record detail-->
     <string name="record_detail_title">식사에 대한 영양 정보 분석입니다</string>
-    <string name="record_detail_c">탄수화물 :</string>
-    <string name="record_detail_p">단백질 :</string>
-    <string name="record_detail_f">지방 :</string>
-    <string name="record_detail_n">나트륨 :</string>
-    <string name="record_detail_ca">칼슘 :</string>
-    <string name="record_detail_fe">철분 :</string>
+    <string name="record_detail_c">탄수화물</string>
+    <string name="record_detail_p">단백질</string>
+    <string name="record_detail_f">지방</string>
+    <string name="record_detail_n">나트륨</string>
+    <string name="record_detail_ca">칼슘</string>
+    <string name="record_detail_fe">철분</string>
     <string name="record_detail_total">총 섭취량 :</string>
     <string name="record_detail_full">충분해요 !</string>
     <string name="record_detail_lack">부족해요..</string>
