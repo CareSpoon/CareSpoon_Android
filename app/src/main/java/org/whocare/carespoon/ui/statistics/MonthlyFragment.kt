@@ -2,22 +2,21 @@ package org.whocare.carespoon.ui.statistics
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.github.mikephil.charting.animation.Easing
-import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.data.BarData
-import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.BarEntry
-import com.github.mikephil.charting.data.PieData
-import com.github.mikephil.charting.data.PieDataSet
-import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import org.whocare.carespoon.R
 import org.whocare.carespoon.data.CareSpoonSharedPreferences
@@ -25,6 +24,7 @@ import org.whocare.carespoon.databinding.FragmentMonthlyBinding
 import org.whocare.carespoon.ui.viewModel.StatisticsViewModel
 import java.time.LocalDate
 import kotlin.properties.Delegates
+
 
 class MonthlyFragment : Fragment() {
     private lateinit var binding: FragmentMonthlyBinding
@@ -66,85 +66,37 @@ class MonthlyFragment : Fragment() {
     }
 
     private fun setChart(){
-        viewModel.noMonthData.observe(viewLifecycleOwner, Observer{
-            it.getContentIfNotHandled()?.let {
-                setPieChart(0f)
-                setBarChart(0f, 0f, 0f)
-            }
-        })
-
         viewModel.withMonthData.observe(viewLifecycleOwner, Observer {
             it.getContentIfNotHandled()?.let {
-                setPieChart(String.format("%.2f", kcal).toFloat())
-                setBarChart((String.format("%.2f", carbon).toFloat()), (String.format("%.2f", protein).toFloat()), (String.format("%.2f", fat).toFloat()))
+                setLineChart(String.format("%.2f", kcal).toFloat(), (String.format("%.2f", carbon).toFloat()), (String.format("%.2f", protein).toFloat()), (String.format("%.2f", fat).toFloat()))
             }
         })
     }
 
-    private fun setPieChart(kcal: Float) {
-        // 1. [PieEntry] Chart에 표시될 데이터 값 생성
-        val entries = ArrayList<PieEntry>()
-        val maximum = CareSpoonSharedPreferences.getUserKcal()!!.toFloat() * 30
-
-        entries.add(PieEntry(kcal, ""))
-        entries.add(PieEntry(maximum - kcal, ""))
-
-        val colorList = intArrayOf(Color.rgb(80, 189, 111), Color.rgb(246, 246, 246))
-        val colorItems = ArrayList<Int>()
-        for (c in colorList) colorItems.add(c)
-
-        // 2. [PieDataSet] Chart 커스텀
-        val pieDataSet = PieDataSet(entries, "")
-        pieDataSet.apply {
-            colors = colorItems
-        }
-
-        // 3. [pieData] 보여질 데이터 구성
-        val pieData = PieData(pieDataSet)
-        binding.chPieChart.apply {
-            data = pieData
-            setUsePercentValues(true)
-            description.isEnabled = false
-            isRotationEnabled = false
-            legend.isEnabled = false
-            centerText = "${kcal}kcal"
-            setTouchEnabled(false)
-            setCenterTextColor(R.color.black)
-            setCenterTextSize(24F)
-            animateY(1400, Easing.EaseInOutQuad)
-            animate()
-        }
-    }
-
-    private fun setBarChart(carbon: Float, protein: Float, fat: Float) {
+    private fun setLineChart(total: Float, carbon: Float, protein: Float, fat: Float) {
         configureBarChartAppearance()
 
-        // 1. [BarEntry] BarChart에 표시될 데이터 값 생성
-        val entries = ArrayList<BarEntry>()
+        val entries = ArrayList<Entry>()
         entries.add(BarEntry(0f, fat))
         entries.add(BarEntry(1f, protein))
         entries.add(BarEntry(2f, carbon))
+        entries.add(BarEntry(3f, fat))
 
-        // 2. [BarDataSet] 단순 데이터를 막대 모양으로 표시, BarChart의 막대 커스텀
-        val barDataSet = BarDataSet(entries, "")
-        barDataSet.apply {
+        val lineDataSet = LineDataSet(entries, "")
+        lineDataSet.apply {
             setDrawIcons(false)
             setDrawValues(true)
-            setColors(
-                ContextCompat.getColor(binding.chBarChart.context, R.color.lime01),
-                ContextCompat.getColor(binding.chBarChart.context, R.color.purple01),
-                ContextCompat.getColor(binding.chBarChart.context, R.color.pink01)
-            )
             valueTextSize = 15f
+            lineWidth = 5f
+            color = Color.rgb(32, 201, 80);
         }
 
         // Create the labels for the bars
-        val xVals : ArrayList<String> = arrayListOf("지", "단", "탄")
+        val xVals : ArrayList<String> = arrayListOf("지방", "단백질", "탄수화물", "총량")
 
-        // 3. [BarData] 보여질 데이터 구성
-        val barData = BarData(barDataSet)
-        binding.chBarChart.apply {
-            data = barData
+        val lineData = LineData(lineDataSet)
+        binding.chLineChart.apply {
+            data = lineData
             description.isEnabled = false
             legend.isEnabled = false
             setTouchEnabled(false)
@@ -154,39 +106,58 @@ class MonthlyFragment : Fragment() {
             xAxis.labelCount = xVals.size
             xAxis.valueFormatter = IndexAxisValueFormatter(xVals)
             xAxis.position = XAxis.XAxisPosition.BOTTOM
-            setDrawValueAboveBar(true)
         }
     }
 
     private fun configureBarChartAppearance() {
-        val skillRatingChart = binding.chBarChart
+        val maxKcal = CareSpoonSharedPreferences.getUserKcal()!!.toFloat()*30
+        binding.chLineChart.extraBottomOffset = 15f // 간격
+        binding.chLineChart.description.isEnabled = false // chart 밑에 description 표시 유무
 
-        skillRatingChart.setDrawBarShadow(false)
-        val description = Description()
-        description.text = ""
-        skillRatingChart.description = description
-        skillRatingChart.legend.isEnabled = false
-        skillRatingChart.setPinchZoom(false)
-        skillRatingChart.setDrawValueAboveBar(false)
+        // Legend는 차트의 범례
+        val legend: Legend = binding.chLineChart.legend
+        legend.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM
+        legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
+        legend.form = Legend.LegendForm.CIRCLE
+        legend.formSize = 10f
+        legend.textSize = 13f
+        legend.textColor = Color.parseColor("#A3A3A3")
+        legend.orientation = Legend.LegendOrientation.VERTICAL
+        legend.setDrawInside(false)
+        legend.yEntrySpace = 5f
+        legend.isWordWrapEnabled = true
+        legend.xOffset = 80f
+        legend.yOffset = 20f
+        legend.calculatedLineSizes
 
-        //Display the axis on the left (contains the labels 1*, 2* and so on)
-        val xAxis = skillRatingChart.xAxis
-        xAxis.setDrawGridLines(false)
-        xAxis.isEnabled = true
+        // XAxis (아래쪽) - 선 유무, 사이즈, 색상, 축 위치 설정
+        val xAxis: XAxis = binding.chLineChart.xAxis
         xAxis.setDrawAxisLine(false)
+        xAxis.setDrawGridLines(false)
+        xAxis.position = XAxis.XAxisPosition.BOTTOM // x축 데이터 표시 위치
 
-        val yLeft = skillRatingChart.axisLeft
-        //Set the minimum and maximum bar lengths as per the values that they represent
-        // yLeft.axisMaximum = CareSpoonSharedPreferences.getUserKcal()!!.toFloat()
-        yLeft.axisMaximum = 3000f
-        yLeft.axisMinimum = 0f
-        yLeft.spaceTop = 10f
-        yLeft.isEnabled = false
+        xAxis.granularity = 1f
+        xAxis.textSize = 14f
+        xAxis.textColor = Color.rgb(118, 118, 118)
+        xAxis.spaceMin = 0.1f // Chart 맨 왼쪽 간격 띄우기
 
-        val yRight = skillRatingChart.axisRight
-        yRight.setDrawAxisLine(true)
-        yRight.setDrawGridLines(false)
-        yRight.isEnabled = false
+        // YAxis(Right) (왼쪽) - 선 유무, 데이터 최솟값/최댓값, 색상
+        val yAxisLeft: YAxis = binding.chLineChart.axisLeft
+        yAxisLeft.textSize = 14f
+        yAxisLeft.textColor = Color.rgb(163, 163, 163)
+        yAxisLeft.setDrawAxisLine(false)
+        yAxisLeft.axisLineWidth = 2f
+        yAxisLeft.axisMinimum = 0f // 최솟값
+        yAxisLeft.axisMaximum = maxKcal
+
+        // YAxis(Left) (오른쪽) - 선 유무, 데이터 최솟값/최댓값, 색상
+        val yAxis: YAxis = binding.chLineChart.axisRight
+        yAxis.setDrawLabels(false) // label 삭제
+        yAxis.textColor = Color.rgb(163, 163, 163)
+        yAxis.setDrawAxisLine(false)
+        yAxis.axisLineWidth = 2f
+        yAxis.axisMinimum = 0f // 최솟값
+        yAxis.axisMaximum = maxKcal
     }
 
     companion object {
