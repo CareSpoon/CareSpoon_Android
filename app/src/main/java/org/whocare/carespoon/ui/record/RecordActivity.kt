@@ -18,7 +18,6 @@ class RecordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecordBinding
     private val viewModel: MealViewModel by viewModels()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecordBinding.inflate(layoutInflater)
@@ -37,8 +36,8 @@ class RecordActivity : AppCompatActivity() {
         setDate()
     }
 
-    private fun setDate() { // 추후에 < > 버튼으로 날짜 바꾸는 것 까지 적용하기
-        var date = LocalDate.now().toString()
+    private fun setDate() {
+        val date = LocalDate.now().toString() // "2023-06-10"
         CareSpoonSharedPreferences.getUUID()?.let { viewModel.requestMealList(it, date) }
     }
 
@@ -99,6 +98,21 @@ class RecordActivity : AppCompatActivity() {
     }
 
     private fun setIntent() {
+        binding.clBreakfast.setOnClickListener {
+            val intent = Intent(this, RecordDetailActivity::class.java)
+            intent.putExtra("tag", "breakfast")
+            startActivity(intent)
+        }
+        binding.clLunch.setOnClickListener {
+            val intent = Intent(this, RecordDetailActivity::class.java)
+            intent.putExtra("tag", "lunch")
+            startActivity(intent)
+        }
+        binding.clDinner.setOnClickListener {
+            val intent = Intent(this, RecordDetailActivity::class.java)
+            intent.putExtra("tag", "dinner")
+            startActivity(intent)
+        }
         binding.clBreakfastNull.setOnClickListener {
             val intent = Intent(this, CameraActivity::class.java)
             intent.putExtra("tag", "breakfast")
