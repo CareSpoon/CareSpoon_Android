@@ -35,14 +35,13 @@
   </tr>
 </table>
 
-</br>
 구글 계정을 연동하여 간편하게 로그인이 가능하다. 이후 기초대사량 계산을 위한 간단한 신체 정보를 기입하면 회원가입을 마칠 수 있다.
 </br></br>
 
 <table>
   <tr>
-    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/32b8fd59-04fa-4749-bd33-b3bf0776ef6b"></td>
-    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/5e2f444e-03fb-408a-8cf1-07ec915eb161"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/3b07ff1b-5d21-4034-8ae3-20c6cb7a30d4"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/d39cc7c9-f871-4451-9d3c-0b4ad530ae71"></td>
     <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/defa901b-ffd0-4020-9544-9b795a8b1a22"></td>
     <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/42993e9e-378c-4ea9-9f47-6230369cb05e"></td>
     <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/779ad13c-c59c-49f2-b671-1c280a77aea4"></td>
@@ -56,7 +55,6 @@
   </tr>
 </table>
 
-</br>
 홈 화면은 시니어 사용자를 고려하여 크고 복잡하지 않은 요소들로 구성되어 있다. </br>
 빈 카드를 눌러 식단을 촬영하면 AI가 자동으로 사진 속 음식 정보를 분석하여 영양 정보를 기룩해준다. </br>
 식단 카드를 클릭하면 해당 식단에 대한 상세 영양 분석 정보를 확인할 수 있다. </br>
@@ -67,8 +65,8 @@
   <tr>
     <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/0ef43cb1-d04d-400d-b1e7-cd79233c7b60"></td>
     <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/c0924522-29e8-4597-b451-c00096429463"></td>
-    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/a03a16a3-8d97-4f82-a901-23b191ece2c0"></td>
-    <td><img width="200" src="https://github.com/akimcse/akimcse/assets/63237214/fab5951b-57af-478f-94a3-c42ee8747aec"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/d7f8cd46-851d-4f59-8af6-704118116b1c"></td>
+    <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/c4390e4f-9711-41da-b817-87a10d348377"></td>
     <td><img width="200" src="https://github.com/CareSpoon/.github/assets/63237214/f26beb15-477a-4f5e-a5b8-130d2e9b1573"></td>
   </tr>
   <tr>
@@ -79,14 +77,14 @@
     <td align="center"><b>정보 변경</b></td>
   </tr>
 </table>
-
  </br>
  식단 기록 메뉴로 진입하면 주간의 아침, 점심, 저녁 식단 기록을 확인할 수 있다. 마찬가지로 식단 카드를 클릭하면 해당 식단에 대한 상세 화면으로 진입한다. </br> 
 친구와 공유하기 메뉴로 진입하면 현재 내 정보를 공유하고 있는 친구 목록을 볼 수 있고, 사용자가 원한다면 언제든 친구 관계를 끊을 수 있다. </br>
 공유하기 화면 오른쪽 상단의 + 버튼을 눌러 친구 추가 화면으로 진입하면 고유 코드를 검색하여 새 유저를 친구로 등록할 수 있다.</br>
 설정 화면 상단의 알림 토글 버튼을 통해 식단 촬영 시간에 대한 알림을 온/오프 할 수 있다. </br>
 회원가입 시 입력한 신체정보는 권장 섭취량의 계산에 쓰이므로, 신체 정보가 바뀔 시 언제든 자유롭게 변경할 수 있다. </br>
-</br></br></br>
+</br></br>
+</br>
 
 ## ⚙️ Tech
 
